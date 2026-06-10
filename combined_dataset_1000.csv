@@ -1,0 +1,401 @@
+text,label,source
+"Just unboxed this and I am already obsessed, totally worth it!",Positive,twitter
+This product is defective and the company does not care.,Negative,twitter
+"Very happy customer here, this product is everything I hoped for.",Positive,amazon
+"Best purchase of the year honestly, could not be happier right now!",Positive,twitter
+"Product failed on day one, customer service was beyond unhelpful.",Negative,amazon
+"Shocking product that does not work at all, very disappointed.",Negative,amazon
+"Delivered as promised, works as described, all normal.",Neutral,twitter
+"Extremely poor quality, I regret this purchase enormously.",Negative,amazon
+"Horrible experience from start to finish, never again.",Negative,twitter
+"It is fine, not my favourite purchase but not a regret either.",Neutral,amazon
+"Superb build quality and excellent performance, truly impressive.",Positive,amazon
+Some things are great but too many issues to fully recommend.,Mixed,twitter
+"Absolute rubbish, I cannot believe they sell something this bad.",Negative,amazon
+"Absolute garbage, I would give zero stars if that were possible.",Negative,amazon
+"Satisfactory enough, I expected more but I am not truly unhappy.",Neutral,amazon
+"Very reliable and well made, I use it every day without any issues.",Positive,amazon
+"Genuinely awful, I cannot believe this is sold legally.",Negative,twitter
+Good product but missing several key features I really need.,Mixed,twitter
+"So glad I took the risk, this has completely won me over!",Positive,twitter
+Performance is okay but the noise level is surprisingly high.,Mixed,twitter
+"Product disintegrated on first use, no quality control at all.",Negative,amazon
+Top quality product that does everything it claims and more.,Positive,amazon
+Great functionality but way too complicated for average users.,Mixed,twitter
+"This is embarrassingly bad quality, avoid at all costs.",Negative,twitter
+"Absolutely love this product, works perfectly every single time.",Positive,amazon
+Great brand but this specific product was a disappointment.,Mixed,twitter
+"Standard quality, I have seen better but also much worse.",Neutral,amazon
+"This is everything and more, so glad I finally bought it!",Positive,twitter
+"Regret buying this so much, complete waste of hard earned money.",Negative,twitter
+"Standard item that does what it says, nothing more than that.",Neutral,amazon
+Initially impressed but the novelty wore off quite quickly.,Mixed,twitter
+Solid performance but the instructions provided are completely unclear.,Mixed,amazon
+This is genuinely the worst product I have ever purchased.,Negative,twitter
+"Very poor quality, feels cheap and flimsy, breaks immediately.",Negative,amazon
+This is hands down one of the best purchases I have ever made!,Positive,twitter
+"Average purchase experience, neither impressed nor let down.",Neutral,amazon
+Does the job but nothing about it stands out whatsoever.,Neutral,amazon
+"Standard item, works as described, delivery was okay.",Neutral,twitter
+Great price but the quality is not quite what I expected here.,Mixed,amazon
+"Product is usable and arrived intact, nothing more to add.",Neutral,amazon
+Love the features but the software bugs are driving me crazy.,Mixed,twitter
+"Product stopped working within hours, extremely disappointed.",Negative,amazon
+"Nothing works as described, I feel completely cheated here.",Negative,amazon
+"Great quality item, shipping was fast and packaging was secure.",Positive,amazon
+"Total scam, product is nothing like the description provided.",Negative,amazon
+Looks premium but feels lightweight and cheap to hold.,Mixed,twitter
+"Nothing exciting here, competent and forgettable in equal measure.",Neutral,amazon
+Beautiful to look at but the performance is below what I expected.,Mixed,amazon
+"One of the best things I have ever bought online, no regrets.",Positive,amazon
+Love the functionality but the software has far too many bugs.,Mixed,amazon
+"I am so glad I bought this, it has transformed how I do things.",Positive,amazon
+"Works as advertised, delivery was fine, all pretty normal.",Neutral,twitter
+"Does the job adequately, no real issues to mention.",Neutral,twitter
+"Pathetic quality and rude customer service, absolutely dreadful.",Negative,amazon
+Stylish design but way too difficult to set up and use.,Mixed,twitter
+"Really happy with this product, exactly as described and fast delivery.",Positive,amazon
+"Wow just wow, this product completely blew me away today!",Positive,twitter
+Very useful product but the warranty terms are completely unfair.,Mixed,amazon
+"Brilliant from start to finish, buying experience was great too.",Positive,amazon
+Arrived quickly but the product looks nothing like the pictures.,Mixed,amazon
+"Used it once and it worked fine, no issues to report.",Neutral,amazon
+"This product failed immediately, I am absolutely disgusted.",Negative,twitter
+"Terrible product, terrible service, save your money please.",Negative,twitter
+"Terrible terrible terrible, avoid this product at all costs.",Negative,amazon
+"Average quality for the price, delivery was on time.",Neutral,amazon
+Stunning product that performs brilliantly every single day.,Positive,amazon
+Fast delivery but the product is not what I expected at all.,Mixed,twitter
+"Completely useless, arrived damaged and smells terrible.",Negative,twitter
+Works fine indoors but completely struggles in outdoor conditions.,Mixed,twitter
+Broken on arrival and the return process is a nightmare.,Negative,amazon
+"Pretty ordinary product, does its job, nothing remarkable.",Neutral,twitter
+"Middling quality for a middling price, neither good nor bad.",Neutral,amazon
+"Outstanding quality, arrived quickly and packaged beautifully.",Positive,amazon
+"Brilliant purchase, works exactly as I hoped and looks fantastic.",Positive,amazon
+Design is beautiful but battery dies way too quickly.,Mixed,twitter
+"Super satisfied with this purchase, shipping was really fast too!",Positive,twitter
+"Could not be more pleased, this is honestly a perfect product!",Positive,twitter
+Works perfectly in theory but fails in actual daily practice.,Mixed,twitter
+Good initial impression but quality dropped noticeably after a month.,Mixed,amazon
+"I am fuming, this product is completely broken and useless.",Negative,twitter
+"Five stars without hesitation, this is exactly what I was looking for.",Positive,amazon
+"I love this so much, already ordered a second one as a gift.",Positive,amazon
+"This just made my entire week, so happy with this purchase!",Positive,twitter
+"This product is absolute garbage, do not waste your money on it.",Negative,twitter
+Do yourself a favour and avoid this terrible product.,Negative,twitter
+"Item arrived broken, support was useless and extremely rude.",Negative,amazon
+"Total game changer, I am recommending this to absolutely everyone!",Positive,twitter
+"It arrived on time and does what it says, that is about it.",Neutral,twitter
+"Reasonable quality, not outstanding but satisfactory enough.",Neutral,amazon
+"Arrived damaged, smells bad, and does not work as described.",Negative,amazon
+"Unbelievably good quality, fast delivery, happy customer here!",Positive,twitter
+"Product meets basic requirements, nothing exceptional here.",Neutral,twitter
+"Item arrived and functions correctly, that is all I can say.",Neutral,amazon
+So impressed with the quality and speed of delivery today!,Positive,twitter
+Interesting product with real potential but needs serious refinement.,Mixed,amazon
+"Works adequately, packaging was fine, delivery was average.",Neutral,twitter
+Good value initially but quality went downhill very quickly.,Mixed,twitter
+Great for some tasks but completely useless for others.,Mixed,twitter
+"So happy right now, this product is everything I hoped for!",Positive,twitter
+"This is shameful, the quality is appalling and embarrassing.",Negative,amazon
+"This product is perfect for my needs, could not ask for more!",Positive,twitter
+"Nothing remarkable here, meets basic expectations nothing more.",Neutral,amazon
+"Highly impressed by the build and performance, will buy again.",Positive,amazon
+"Defective out of the box, company refused to issue a refund.",Negative,amazon
+Excellent concept but very poorly implemented in practice.,Mixed,amazon
+"Incredible value for money, quality is way better than expected.",Positive,amazon
+Premium feel and exceptional quality at a very reasonable price.,Positive,amazon
+"Functional and basic, exactly what you would expect for this price.",Neutral,amazon
+Happy with some aspects but overall quite disappointed.,Mixed,twitter
+"Plain product, plain experience, all perfectly adequate.",Neutral,twitter
+"Performance is average, not worth rushing to buy but not to avoid.",Neutral,amazon
+Useful product but warranty terms are extremely unfair.,Mixed,twitter
+"Horrible product, horrible company, horrible experience overall.",Negative,twitter
+Good price but assembly instructions were very confusing.,Mixed,twitter
+"Total scam product from a dishonest seller, avoid completely.",Negative,twitter
+"Disgusting quality, I threw it away after one day of use.",Negative,amazon
+I cannot believe they charge money for something this useless.,Negative,amazon
+Very bad product from a very dishonest company.,Negative,twitter
+"Standard product, arrived okay, works fine, no complaints.",Neutral,twitter
+"Shocking experience, I am warning everyone to avoid this.",Negative,twitter
+Works brilliantly at first but performance drops off very quickly.,Mixed,amazon
+Fair product that does the job adequately for basic needs.,Neutral,amazon
+"This is a game changer, makes my daily routine so much easier.",Positive,amazon
+"Acceptable product for the price, no strong feelings either way.",Neutral,twitter
+"Excellent product that does exactly what it says, very satisfied.",Positive,amazon
+Works well in cool weather but struggles badly in warmer conditions.,Mixed,amazon
+Love the style but the quality is really disappointing honestly.,Mixed,twitter
+Plain and simple product that does its basic job fine.,Neutral,twitter
+Product itself is fine but the customer experience was very poor.,Mixed,amazon
+"Mind blown by the quality here, this is a total must buy!",Positive,twitter
+"It is fine I suppose, does its job without any fuss.",Neutral,twitter
+"Met the bare minimum of my expectations, functional at least.",Neutral,amazon
+"So disappointed, this product is nothing like advertised.",Negative,twitter
+Loved it at first but it started having problems very quickly.,Mixed,amazon
+Reasonable value for a plain and unremarkable product.,Neutral,amazon
+Love the colour and style but the size is way too small for me.,Mixed,amazon
+"This has changed my routine for the better, absolutely love it!",Positive,twitter
+"Do not be fooled by the pictures, this is total junk.",Negative,twitter
+"Absolutely perfect purchase, could not ask for anything better!",Positive,twitter
+"It does what it says on the box, nothing more nothing less.",Neutral,twitter
+"The best investment I have made recently, totally worth every penny.",Positive,amazon
+"It works, that is honestly the best thing I can say about it.",Neutral,amazon
+"This is appalling, I cannot believe how bad this really is.",Negative,twitter
+Looks stunning but feels very cheap and flimsy when you hold it.,Mixed,amazon
+Works brilliantly at first but loses performance quickly over time.,Mixed,amazon
+"Absolute garbage, does not function at all as described.",Negative,twitter
+"This is total junk, avoid it at all costs and save your money.",Negative,amazon
+"Adequate performance for everyday use, no issues to report.",Neutral,amazon
+Decent quality overall but missing some key features I needed.,Mixed,amazon
+Love the design but the material quality is really poor.,Mixed,twitter
+"Perfect in every way, I am so happy with this wonderful purchase.",Positive,amazon
+Not the most exciting purchase but it works well enough.,Neutral,twitter
+"This is a total scam, quality is appalling and broken.",Negative,twitter
+Great design but the battery dies way too quickly for daily use.,Mixed,amazon
+"So pleased with this, it solved my problem immediately and perfectly.",Positive,amazon
+I like the features but the build quality is frankly disappointing.,Mixed,amazon
+"Decent enough product, not great but not terrible either.",Neutral,amazon
+"Appalling quality, this is the worst thing I have ever bought.",Negative,amazon
+"It does what I needed it to do, no more no less.",Neutral,twitter
+Excellent when it works but reliability is a real concern.,Mixed,twitter
+Works well most of the time but randomly malfunctions sometimes.,Mixed,twitter
+"Thrilled with my purchase today, absolute quality product!",Positive,twitter
+"Completely failed on day one, company will not help me.",Negative,twitter
+Happy with quality but delivery took three weeks longer than stated.,Mixed,amazon
+Great idea but the execution is really poor unfortunately.,Mixed,twitter
+"Garbage product from a garbage company, will not buy again.",Negative,amazon
+Nice looking product but the performance is quite underwhelming.,Mixed,twitter
+Effective product but the smell is quite unpleasant initially.,Mixed,amazon
+Standard purchase experience with a standard everyday product.,Neutral,amazon
+"Just recommended this to ten people already, it is that good!",Positive,twitter
+"Dreadful quality and deceptive advertising, avoid completely.",Negative,amazon
+"I am furious, this is not as advertised and does not work.",Negative,amazon
+"Neither a standout nor a disappointment, just an average product.",Neutral,amazon
+"What a disaster, this product is dangerous and should be recalled.",Negative,amazon
+Average build quality and average performance for the price.,Neutral,amazon
+"Product arrived and works fine, nothing exciting to report.",Neutral,twitter
+"I am demanding a refund, this product is completely defective.",Negative,amazon
+Arrived earlier than expected and it is absolutely perfect!,Positive,twitter
+"Worst brand I have ever used, everything about this is wrong.",Negative,amazon
+"Works like a dream, very easy to set up and a joy to use daily.",Positive,amazon
+"Absolutely thrilled with this purchase, quality is second to none.",Positive,amazon
+Cannot fault it much but cannot praise it much either.,Neutral,amazon
+"Acceptable quality for the cost, delivery was standard speed.",Neutral,amazon
+Quality is excellent however the price is simply too high.,Mixed,amazon
+"Horrible product that failed immediately, total rip off.",Negative,amazon
+Great brand reputation but this particular product really let me down.,Mixed,amazon
+"It is an average product at an average price, all fine.",Neutral,twitter
+This is genuinely the best product I have bought this year!,Positive,twitter
+"Product is functional and arrived on time, all good.",Neutral,twitter
+The design is attractive but it scratches and dents very easily.,Mixed,amazon
+"Does exactly what the listing says, simple plain and functional.",Neutral,amazon
+Feel completely indifferent about this product honestly.,Neutral,amazon
+Effective but the instructions are completely incomprehensible.,Mixed,twitter
+"Completely useless, does not function as advertised at all.",Negative,amazon
+"It functions properly, quality is acceptable for this price.",Neutral,twitter
+"Adequate performance for everyday use, no issues at all.",Neutral,twitter
+"Reasonable product, not outstanding but satisfactory.",Neutral,twitter
+"Nice design but it broke so quickly, very mixed feelings.",Mixed,twitter
+"Average quality for the price, delivery was on time.",Neutral,twitter
+"Product is okay, not amazing not terrible, just average.",Neutral,twitter
+I love the design but it stopped working properly after two weeks.,Mixed,amazon
+"OMG this is incredible, best thing I have bought in ages!",Positive,twitter
+Worst brand I have ever dealt with in my entire life.,Negative,twitter
+"This exceeded every single one of my expectations, outstanding!",Positive,twitter
+"This is a disaster, broken immediately and no refund given.",Negative,twitter
+"Works adequately for basic tasks, would not strongly recommend.",Neutral,amazon
+"Works perfectly, easy to assemble, and looks amazing in my home.",Positive,amazon
+"Brilliant product, easy to use and delivers amazing results.",Positive,amazon
+"Works okay for basic tasks, nothing special about it.",Neutral,twitter
+Impressive packaging but the performance is well below expectations.,Mixed,amazon
+"Five stars, zero regrets, this is an absolute must buy product!",Positive,twitter
+"It is what it is, a basic product at a basic price point.",Neutral,amazon
+Great price point but I expected slightly higher overall quality.,Mixed,amazon
+"It gets the job done, I am not particularly thrilled though.",Neutral,twitter
+"This product is a disgrace, nothing works as it should.",Negative,twitter
+"Serviceable product for the price, would not strongly recommend.",Neutral,amazon
+Delivery was super fast but item arrived with minor damage.,Mixed,twitter
+Terrible product that broke immediately with no support.,Negative,twitter
+Reasonable quality but key features are locked behind paywall.,Mixed,twitter
+"This is shameful quality, how is this even being sold.",Negative,twitter
+Works well sometimes but crashes unexpectedly far too often.,Mixed,twitter
+Love the concept and design but the battery life is far too short.,Mixed,amazon
+"This is the worst thing I have ever bought, complete rubbish.",Negative,twitter
+"Gets the job done without any fuss, a very ordinary purchase.",Neutral,amazon
+Good value for money but it broke down after just one month.,Mixed,amazon
+Enjoy using it but wish it came with much better documentation.,Mixed,amazon
+Very stylish product but extremely difficult to set up properly.,Mixed,amazon
+Love the concept but real life use is quite disappointing.,Mixed,twitter
+"Exceeded all expectations, brilliant quality and super fast delivery.",Positive,amazon
+"So in love with this, already telling all my friends to buy it!",Positive,twitter
+"Delivered on time and in one piece, works as described.",Neutral,amazon
+"This product deserves all the hype it gets, absolutely stunning!",Positive,twitter
+This product has genuinely improved my day to day life so much!,Positive,twitter
+"Love everything about this, the design and performance are superb.",Positive,amazon
+"Not bad and not great, just a simple product that works fine.",Neutral,amazon
+Love the look but performance is not matching the price at all.,Mixed,twitter
+"Happy customer alert, this product is seriously next level!",Positive,twitter
+Looks good in photos but feels very cheap in real life.,Mixed,twitter
+Quality feels good but the price is a bit too high for this.,Mixed,twitter
+Product looks amazing but it stopped working after two days.,Mixed,twitter
+Happy with delivery but product does not match description.,Mixed,twitter
+"Ordinary product ordinary experience ordinary result, all fine.",Neutral,amazon
+"Very bad product, very bad company, complete waste of money.",Negative,amazon
+"Received it in good condition, functions correctly, okay.",Neutral,twitter
+Impressed by the attention to detail and overall quality here.,Positive,amazon
+"Broke in less than 24 hours, company will not issue a refund.",Negative,amazon
+Works well at first but degrades noticeably within weeks.,Mixed,twitter
+"Functions properly, quality is acceptable for this price range.",Neutral,amazon
+"Just the best, quality is phenomenal and delivery was so quick!",Positive,twitter
+Broken junk that does not work and cannot be returned.,Negative,twitter
+Product arrived in expected condition and performs as stated.,Neutral,amazon
+"This is seriously so good, I have already reordered more!",Positive,twitter
+Fast shipping but the item does not match the description at all.,Mixed,amazon
+"Dreadful quality that broke immediately, avoid this brand.",Negative,twitter
+Highly recommend this to anyone looking for quality and reliability.,Positive,amazon
+The main function is good but all the extras are useless.,Mixed,twitter
+"This product should be removed from sale, it is dangerous.",Negative,amazon
+One star is too generous for this absolute disaster of a product.,Negative,amazon
+"This product is pure joy, I use it every single day now!",Positive,twitter
+Good value initially but the quality deteriorated very quickly.,Mixed,amazon
+Superb packaging but the actual product inside was underwhelming.,Mixed,amazon
+"Could not be happier, the quality exceeded my highest expectations.",Positive,amazon
+"I have recommended this to all my friends, it is that good.",Positive,amazon
+"Simply the best product in its category, absolutely worth buying.",Positive,amazon
+Reliable most of the time but the noise level is surprisingly loud.,Mixed,amazon
+"Not a wow product but not a disappointment either, it is fine.",Neutral,amazon
+Nothing to write home about but it works fine enough.,Neutral,twitter
+Broken out of the box and company refuses to help me.,Negative,twitter
+"This made my day so much better, totally obsessed with it now!",Positive,twitter
+"Horrible, horrible, horrible. Broken and useless from the start.",Negative,amazon
+"Terrible quality, nothing like the description or the photos.",Negative,amazon
+"This is exactly what great quality looks like, truly impressed!",Positive,twitter
+"I am so angry about this purchase, completely useless junk.",Negative,twitter
+"It does the job I suppose, not particularly impressed though.",Neutral,twitter
+Excellent during testing but proves unreliable in everyday use.,Mixed,amazon
+"This blew me away with its quality and performance, truly great.",Positive,amazon
+"Product arrived intact and functions correctly, that is all.",Neutral,twitter
+"Honestly blown away by the quality, five stars all day long!",Positive,twitter
+"Furious with this purchase, it does not work at all.",Negative,twitter
+"It arrived and it works, that sums up this purchase really.",Neutral,twitter
+"Amazing product, my whole family uses it and loves it every day.",Positive,amazon
+This arrived broken and now I cannot even get a refund.,Negative,twitter
+Customer service was great but the product itself let me down.,Mixed,twitter
+"Product is okay, does the job but nothing special about it.",Neutral,amazon
+"Obsessed with this purchase, quality is seriously incredible!",Positive,twitter
+"Product is okay, does what it needs to do, all fine.",Neutral,twitter
+"Incredible quality and super fast delivery, very impressed!",Positive,twitter
+Good price but the assembly instructions were extremely confusing.,Mixed,amazon
+Terrible product that broke immediately and cannot be returned.,Negative,amazon
+"So happy I ordered this, quality is genuinely outstanding!",Positive,twitter
+"Product is a fraud, looks nothing like the listing photos.",Negative,amazon
+"Superb quality at a great price, could not ask for anything more.",Positive,amazon
+Received it in perfect condition and it works better than expected.,Positive,amazon
+"This product is dangerously bad, should be taken off sale.",Negative,twitter
+Just got my order and I am absolutely obsessed with this product!,Positive,twitter
+Works well initially but already showing problems after a week.,Mixed,twitter
+"This has made my life so much easier, I cannot recommend it enough.",Positive,amazon
+"Got my delivery today, product works okay, nothing exciting.",Neutral,twitter
+"Totally worth every penny, this product is genuinely brilliant!",Positive,twitter
+"Absolute disaster of a product, I am demanding a full refund.",Negative,twitter
+"Total rip off, the photos are completely misleading.",Negative,twitter
+Good for light use but not durable enough for heavy daily use.,Mixed,amazon
+Great for occasional use but not durable enough for daily use.,Mixed,twitter
+"No complaints and no praise, a perfectly average product.",Neutral,amazon
+"Terrible experience from start to finish, never buying again.",Negative,amazon
+"Standard experience all around, nothing notable to mention.",Neutral,amazon
+"A middle of the road product, nothing to complain about really.",Neutral,amazon
+"This product is fantastic, works flawlessly and looks stunning.",Positive,amazon
+"Shocking quality for the price, completely unacceptable.",Negative,amazon
+"Got my order today, works fine I guess, nothing special.",Neutral,twitter
+"Absolutely delighted with this purchase, it is simply perfect.",Positive,amazon
+Customer service was fantastic but the product itself is poor.,Mixed,amazon
+"Great product great price great service, what more could you want.",Positive,amazon
+Packaging was impressive but the product inside was not.,Mixed,twitter
+"Standard delivery, standard product, standard everything.",Neutral,twitter
+"This product is a total winner, highly recommend without hesitation!",Positive,twitter
+"Complete rubbish, I would give zero stars if I possibly could.",Negative,twitter
+"Got what I paid for, nothing more nothing less honestly.",Neutral,twitter
+"The quality is insane for the price, absolutely recommend this!",Positive,twitter
+"This product is everything I dreamed of and more, wow!",Positive,twitter
+"Love love love this product, works better than I imagined!",Positive,twitter
+"The worst quality I have ever seen, do not buy this ever.",Negative,twitter
+Great price but quality does not match what was advertised.,Mixed,twitter
+"Returned immediately, quality is shocking and support was useless.",Negative,twitter
+Fast shipping but quality of packaging left something to desire.,Mixed,twitter
+Product works for basic use but lacks features I need daily.,Mixed,twitter
+"Received it today, works as described, nothing to add.",Neutral,twitter
+"I am absolutely livid, this product is a complete fraud.",Negative,twitter
+"Cannot believe how good this is, totally recommend to everyone!",Positive,twitter
+Fast delivery but unfortunately the item arrived with damage.,Mixed,amazon
+"Excellent product at a fair price, delivery was faster than expected.",Positive,amazon
+Just tried it for the first time and I am completely hooked!,Positive,twitter
+Lovely design but the material feels extremely cheap to touch.,Mixed,amazon
+"Not bad not great, just a regular product that works fine.",Neutral,twitter
+"Broken after one use, customer support completely ignored me.",Negative,twitter
+"Mediocre experience overall, could be better could be worse.",Neutral,amazon
+Arrived completely damaged and customer support refused to help.,Negative,amazon
+"Best purchase I have made this year, highly recommend to everyone.",Positive,amazon
+"Perfect product, perfect packaging, perfect delivery, five stars.",Positive,amazon
+"Dreadful experience, the product failed and no support at all.",Negative,amazon
+"This is genuinely amazing, arrived fast and works perfectly!",Positive,twitter
+"Phenomenal quality, I was amazed at how good this actually is.",Positive,amazon
+"This product is a joke, broke immediately and no support.",Negative,twitter
+The absolute worst product I have ever purchased in my life.,Negative,amazon
+"Nothing remarkable, meets basic expectations, all okay.",Neutral,twitter
+"Do not buy this, it is a total scam and absolute garbage.",Negative,amazon
+"Product works fine, feels average, looks average, all fine.",Neutral,twitter
+"Shocking quality, I threw it away after just one day.",Negative,twitter
+"Could not be happier with this, best decision I made this month!",Positive,twitter
+"Wonderful item, arrived on time and works exactly as described.",Positive,amazon
+"Neither impressed nor disappointed, just a plain product.",Neutral,twitter
+"This product ruined my day, totally useless and cheaply made.",Negative,amazon
+"Absolutely horrific product, nothing works as advertised.",Negative,twitter
+Works as expected most of the time but fails at peak usage.,Mixed,amazon
+"Functional product at a fair price, no issues so far.",Neutral,twitter
+Good build quality but missing crucial features I expected.,Mixed,twitter
+"Unremarkable but functional, does what you would expect.",Neutral,amazon
+"Meh, it works but I expected a bit more honestly.",Neutral,twitter
+Good overall but customer support was slow and unhelpful.,Mixed,twitter
+"Got it today, it works, no complaints but no praise either.",Neutral,twitter
+"Absolutely delighted with my order, quality is top tier!",Positive,twitter
+"Worst purchase I have ever made, deeply regret buying this.",Negative,amazon
+"Complete waste of money, broke after the very first use.",Negative,amazon
+Nice design but far too small for practical everyday household use.,Mixed,amazon
+Good product overall but customer support really could be improved.,Mixed,amazon
+Some great features here but far too many annoying drawbacks.,Mixed,twitter
+The app is beautiful but it crashes far too frequently to use.,Mixed,amazon
+Great for beginners but far too limited for more experienced users.,Mixed,amazon
+"Awful product, awful service, I want my money back urgently.",Negative,amazon
+"This product has everything I needed and more, truly wonderful.",Positive,amazon
+"Neither good nor bad, just a completely average experience.",Neutral,twitter
+"Just received mine and I cannot stop smiling, it is perfect!",Positive,twitter
+"Bought this yesterday and it already broke, total scam.",Negative,twitter
+"Gorgeous design and flawless functionality, truly outstanding.",Positive,amazon
+"Standard purchase, standard product, standard experience.",Neutral,twitter
+The main feature works well but all the extras are completely useless.,Mixed,amazon
+"Disgusted with this purchase, it failed on the first try.",Negative,twitter
+Works well most of the time but occasionally malfunctions badly.,Mixed,amazon
+"Complete disaster from start to finish, total waste of money.",Negative,twitter
+"It arrived intact and works correctly, that is all.",Neutral,twitter
+"Do not buy this, it is a complete rip off and utter junk.",Negative,twitter
+"Average experience, product works fine, delivery was okay.",Neutral,twitter
+"Works fine for what it is, no surprises good or bad.",Neutral,amazon
+Packaging was plain and the product itself is equally plain.,Neutral,amazon
+Love the features but the build quality is frankly disappointing.,Mixed,amazon
+Good concept but needs a lot more work before it is ready.,Mixed,twitter
+"Worst online purchase of my life, total waste of time and money.",Negative,amazon
+Love the colour options but the sizing is completely off.,Mixed,twitter
+Very poor quality product sold by a dishonest company.,Negative,amazon
+"No problems with the product, no wow factor either.",Neutral,twitter
+"This is exactly what I needed, works like an absolute dream!",Positive,twitter
+"Fulfills its basic purpose, nothing to get particularly excited about.",Neutral,amazon
+Nice product overall but a few important things are missing.,Mixed,twitter
+"Fantastic product, my expectations were completely blown away.",Positive,amazon
+"Nice concept but execution is poor, I have very mixed feelings.",Mixed,amazon
+"Complete disappointment, not fit for purpose at all.",Negative,amazon
+Product arrived on time and matches the description provided.,Neutral,amazon
+"Worst purchase of my life, I am so angry right now.",Negative,twitter
+"Works for what I need, not overly impressed but not unhappy.",Neutral,twitter
+"It works as expected, no major complaints but nothing exciting.",Neutral,amazon
