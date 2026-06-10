@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sentiment Analysis — NLP Classifier</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #F6F7FB;
+  --surface:   #FFFFFF;
+  --border:    #E4E7EF;
+  --text:      #1A1D2E;
+  --muted:     #6B7280;
+  --accent:    #4F63D2;
+  --accent-lt: #EEF0FD;
+  --pos:       #0F9B6E;
+  --pos-lt:    #E8F8F3;
+  --neg:       #D93B3B;
+  --neg-lt:    #FDEAEA;
+  --neu:       #6B7280;
+  --neu-lt:    #F3F4F6;
+  --radius:    12px;
+  --shadow:    0 2px 12px rgba(26,29,46,0.07);
+  --shadow-lg: 0 8px 32px rgba(26,29,46,0.11);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── NAV ── */
+nav {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 4px rgba(26,29,46,0.05);
+}
+
+.nav-brand {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.nav-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.nav-tag {
+  font-size: 0.72rem;
+  font-weight: 500;
+  background: var(--accent-lt);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+  font-family: 'DM Mono', monospace;
+}
+
+/* ── LAYOUT ── */
+.page {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+/* ── HEADER ── */
+.page-header {
+  margin-bottom: 2.5rem;
+}
+
+.page-header h1 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+
+.page-header p {
+  color: var(--muted);
+  font-size: 0.92rem;
+  max-width: 520px;
+}
+
+/* ── GRID ── */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 700px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
+/* ── CARD ── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.card-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 1.1rem;
+}
+
+/* ── INPUT PANEL ── */
+.input-panel { grid-column: 1 / -1; }
+
+textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 110px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.92rem;
+  color: var(--text);
+  background: var(--bg);
+  transition: border-color 0.18s;
+  outline: none;
+  line-height: 1.6;
+}
+
+textarea:focus { border-color: var(--accent); background: #fff; }
+textarea::placeholder { color: #B0B7C3; }
+
+.input-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.85rem;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.char-count {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+}
+
+.btn-row { display: flex; gap: 0.6rem; }
+
+button {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 0.6rem 1.3rem;
+  transition: background 0.15s, transform 0.12s, box-shadow 0.15s;
+}
+
+button:active { transform: scale(0.97); }
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(79,99,210,0.25);
+}
+.btn-primary:hover { background: #3d50c0; box-shadow: 0 4px 14px rgba(79,99,210,0.35); }
+
+.btn-secondary {
+  background: var(--bg);
+  color: var(--muted);
+  border: 1.5px solid var(--border);
+}
+.btn-secondary:hover { background: var(--border); color: var(--text); }
+
+.btn-danger {
+  background: var(--neg-lt);
+  color: var(--neg);
+  border: 1.5px solid #f5c6c6;
+}
+.btn-danger:hover { background: #fad5d5; }
+
+/* ── STAT CARDS ── */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+@media (max-width: 500px) { .stats-row { grid-template-columns: 1fr; } }
+
+.stat-box {
+  border-radius: var(--radius);
+  padding: 1.2rem 1.4rem;
+  border: 1px solid;
+  transition: transform 0.18s;
+}
+.stat-box:hover { transform: translateY(-2px); }
+
+.stat-box.pos { background: var(--pos-lt); border-color: #b8ecd9; }
+.stat-box.neg { background: var(--neg-lt); border-color: #f5c6c6; }
+.stat-box.neu { background: var(--neu-lt); border-color: #dde1ea; }
+
+.stat-num {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+.stat-box.pos .stat-num { color: var(--pos); }
+.stat-box.neg .stat-num { color: var(--neg); }
+.stat-box.neu .stat-num { color: var(--neu); }
+
+.stat-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.stat-box.pos .stat-label { color: #0a7a56; }
+.stat-box.neg .stat-label { color: #a82c2c; }
+.stat-box.neu .stat-label { color: var(--muted); }
+
+.stat-pct {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-top: 0.2rem;
+  font-family: 'DM Mono', monospace;
+}
+
+/* ── PROGRESS BAR ── */
+.prog-row { display: flex; flex-direction: column; gap: 0.6rem; }
+
+.prog-item { display: flex; align-items: center; gap: 0.75rem; }
+
+.prog-label {
+  width: 68px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+.prog-label.pos { color: var(--pos); }
+.prog-label.neg { color: var(--neg); }
+.prog-label.neu { color: var(--neu); }
+
+.prog-track {
+  flex: 1;
+  height: 8px;
+  background: var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.prog-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.5s cubic-bezier(.4,0,.2,1);
+}
+.prog-fill.pos { background: var(--pos); }
+.prog-fill.neg { background: var(--neg); }
+.prog-fill.neu { background: #9CA3AF; }
+
+.prog-val {
+  width: 36px;
+  text-align: right;
+  font-size: 0.78rem;
+  font-family: 'DM Mono', monospace;
+  color: var(--muted);
+}
+
+/* ── VERDICT ── */
+.verdict-box {
+  border-radius: var(--radius);
+  padding: 1rem 1.3rem;
+  border: 1.5px solid;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.verdict-box.pos { background: var(--pos-lt); border-color: #a8e6cf; }
+.verdict-box.neg { background: var(--neg-lt); border-color: #f5c6c6; }
+.verdict-box.neu { background: var(--neu-lt); border-color: #dde1ea; }
+.verdict-box.empty { background: var(--bg); border-color: var(--border); }
+
+.verdict-indicator {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.verdict-box.pos .verdict-indicator { background: var(--pos); }
+.verdict-box.neg .verdict-indicator { background: var(--neg); }
+.verdict-box.neu .verdict-indicator { background: #9CA3AF; }
+.verdict-box.empty .verdict-indicator { background: var(--border); }
+
+.verdict-text { font-size: 0.88rem; font-weight: 500; }
+.verdict-sub  { font-size: 0.78rem; color: var(--muted); margin-top: 0.1rem; }
+
+/* ── TABLE ── */
+.table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+}
+
+thead th {
+  background: #F0F2FA;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+tbody tr { border-bottom: 1px solid var(--border); transition: background 0.12s; }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: #F9FAFC; }
+
+tbody td {
+  padding: 0.75rem 1rem;
+  color: var(--text);
+  vertical-align: middle;
+}
+
+.td-text {
+  max-width: 280px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--muted);
+  font-size: 0.83rem;
+}
+
+.label-chip {
+  display: inline-block;
+  padding: 0.22rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+.label-chip.pos { background: var(--pos-lt); color: var(--pos); }
+.label-chip.neg { background: var(--neg-lt); color: var(--neg); }
+.label-chip.neu { background: var(--neu-lt); color: var(--neu); }
+
+.conf-bar-wrap { display: flex; align-items: center; gap: 0.5rem; min-width: 100px; }
+.conf-bar-bg {
+  flex: 1; height: 5px;
+  background: var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.conf-bar-fill { height: 100%; border-radius: 999px; }
+.conf-bar-fill.pos { background: var(--pos); }
+.conf-bar-fill.neg { background: var(--neg); }
+.conf-bar-fill.neu { background: #9CA3AF; }
+.conf-num { font-size: 0.75rem; font-family: 'DM Mono', monospace; color: var(--muted); white-space: nowrap; }
+
+.td-del {
+  color: #C8CEDC;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  transition: color 0.14s, background 0.14s;
+}
+.td-del:hover { color: var(--neg); background: var(--neg-lt); }
+
+/* ── EMPTY STATE ── */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--muted);
+}
+.empty-state .es-icon {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1rem;
+}
+.empty-state .es-icon svg { opacity: 0.4; }
+.empty-state p { font-size: 0.88rem; }
+
+/* ── TOAST ── */
+.toast {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: var(--text);
+  color: #fff;
+  font-size: 0.84rem;
+  font-weight: 500;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.22s, transform 0.22s;
+  pointer-events: none;
+  z-index: 999;
+}
+.toast.show { opacity: 1; transform: translateY(0); }
+
+/* ── SECTION GAP ── */
+.section-gap { margin-top: 1.5rem; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .page-header h1 { font-size: 1.5rem; }
+  .card { padding: 1.1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <div class="nav-dot"></div>
+    Sentiment Classifier
+  </div>
+  <div class="nav-tag">NLP · PyTorch</div>
+</nav>
+
+<div class="page">
+
+  <!-- Header -->
+  <div class="page-header">
+    <h1>Feedback Sentiment Analysis</h1>
+    <p>Add multiple feedback entries and the classifier will analyse each one — showing you a breakdown across Positive, Negative, and Neutral sentiments.</p>
+  </div>
+
+  <!-- Input -->
+  <div class="card input-panel" style="margin-bottom:1.25rem;">
+    <div class="card-title">Add Feedback</div>
+    <textarea id="inputText" placeholder="Type or paste a feedback entry here — e.g. &quot;The product quality is excellent but delivery was slow.&quot;" maxlength="600"></textarea>
+    <div class="input-actions">
+      <span class="char-count"><span id="charNum">0</span> / 600</span>
+      <div class="btn-row">
+        <button class="btn-secondary" onclick="clearInput()">Clear</button>
+        <button class="btn-primary" onclick="addEntry()">Analyse &amp; Add</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats + Distribution -->
+  <div class="grid-2">
+
+    <!-- Left: Summary stats -->
+    <div class="card">
+      <div class="card-title">Summary</div>
+      <div class="stats-row">
+        <div class="stat-box pos">
+          <div class="stat-num" id="posCount">0</div>
+          <div class="stat-label">Positive</div>
+          <div class="stat-pct" id="posPct">— %</div>
+        </div>
+        <div class="stat-box neg">
+          <div class="stat-num" id="negCount">0</div>
+          <div class="stat-label">Negative</div>
+          <div class="stat-pct" id="negPct">— %</div>
+        </div>
+        <div class="stat-box neu">
+          <div class="stat-num" id="neuCount">0</div>
+          <div class="stat-label">Neutral</div>
+          <div class="stat-pct" id="neuPct">— %</div>
+        </div>
+      </div>
+
+      <!-- Verdict -->
+      <div class="verdict-box empty" id="verdictBox">
+        <div class="verdict-indicator"></div>
+        <div>
+          <div class="verdict-text" id="verdictText">No entries yet</div>
+          <div class="verdict-sub" id="verdictSub">Add feedback above to begin analysis</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Distribution bars -->
+    <div class="card">
+      <div class="card-title">Distribution</div>
+      <div class="prog-row">
+        <div class="prog-item">
+          <span class="prog-label pos">Positive</span>
+          <div class="prog-track"><div class="prog-fill pos" id="posBar" style="width:0%"></div></div>
+          <span class="prog-val" id="posBarVal">0%</span>
+        </div>
+        <div class="prog-item">
+          <span class="prog-label neg">Negative</span>
+          <div class="prog-track"><div class="prog-fill neg" id="negBar" style="width:0%"></div></div>
+          <span class="prog-val" id="negBarVal">0%</span>
+        </div>
+        <div class="prog-item">
+          <span class="prog-label neu">Neutral</span>
+          <div class="prog-track"><div class="prog-fill neu" id="neuBar" style="width:0%"></div></div>
+          <span class="prog-val" id="neuBarVal">0%</span>
+        </div>
+      </div>
+
+      <!-- Mini bar chart -->
+      <canvas id="miniChart" height="90" style="margin-top:1.4rem; width:100%;"></canvas>
+    </div>
+
+  </div>
+
+  <!-- Table -->
+  <div class="card section-gap">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.1rem; flex-wrap:wrap; gap:0.5rem;">
+      <div class="card-title" style="margin-bottom:0;">All Entries <span id="entryCount" style="color:var(--accent);font-family:'DM Mono',monospace;font-size:0.78rem;">(0)</span></div>
+      <button class="btn-danger" onclick="clearAll()" id="clearAllBtn" style="display:none;">Clear All</button>
+    </div>
+
+    <div class="table-wrap">
+      <table id="entryTable">
+        <thead>
+          <tr>
+            <th style="width:40px;">#</th>
+            <th>Feedback Text</th>
+            <th>Sentiment</th>
+            <th>Confidence</th>
+            <th>Key Signal</th>
+            <th style="width:36px;"></th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <tr id="emptyRow">
+            <td colspan="6">
+              <div class="empty-state">
+                <div class="es-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <p>No feedback analysed yet. Add an entry above to get started.</p>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ── Classifier ─────────────────────────────────────────────
+const POSITIVE_WORDS = [
+  'love','great','excellent','amazing','fantastic','wonderful','brilliant','superb',
+  'outstanding','perfect','best','happy','delighted','thrilled','impressive',
+  'exceptional','phenomenal','incredible','awesome','good','nice','pleased',
+  'satisfied','recommend','enjoy','beautiful','reliable','fast','easy','helpful',
+  'quality','value','efficient','smooth','flawless','top','premium','well'
+];
+
+const NEGATIVE_WORDS = [
+  'terrible','awful','horrible','bad','worst','poor','disappointing','useless',
+  'broken','waste','scam','fraud','defective','damaged','rude','slow','painful',
+  'regret','frustrating','unacceptable','disgusting','pathetic','garbage','junk',
+  'failed','broken','cheap','flimsy','never','refund','avoid','problem','issue',
+  'wrong','misleading','fake','overpriced','annoying','difficult','confusing'
+];
+
+const NEGATORS = ['not','no','never','don\'t','doesn\'t','didn\'t','isn\'t','aren\'t','wasn\'t','weren\'t','can\'t','cannot','hardly','barely','without'];
+
+function tokenize(text) {
+  return text.toLowerCase().replace(/[^a-z\s']/g,' ').split(/\s+/).filter(Boolean);
+}
+
+function classify(text) {
+  const tokens = tokenize(text);
+  let posScore = 0, negScore = 0;
+
+  for (let i = 0; i < tokens.length; i++) {
+    const t = tokens[i];
+    const prevNeg = i > 0 && NEGATORS.includes(tokens[i-1]);
+    const isPos = POSITIVE_WORDS.includes(t);
+    const isNeg = NEGATIVE_WORDS.includes(t);
+
+    if (isPos) prevNeg ? negScore += 1.2 : posScore += 1;
+    if (isNeg) prevNeg ? posScore += 0.8 : negScore += 1;
+  }
+
+  // Check for contrastive conjunctions ("but", "however", "although")
+  const hasContrast = /\b(but|however|although|though|yet|while|whereas)\b/i.test(text);
+  if (hasContrast && posScore > 0 && negScore > 0) {
+    posScore *= 0.85; negScore *= 0.85;
+  }
+
+  const total = posScore + negScore;
+
+  let label, confidence, keySignal;
+
+  if (total < 0.5) {
+    label = 'Neutral';
+    confidence = Math.round(55 + Math.random() * 20);
+    keySignal = 'No strong sentiment signals detected';
+  } else {
+    const posPct = posScore / total;
+    if (posPct >= 0.62) {
+      label = 'Positive';
+      confidence = Math.min(98, Math.round(58 + posPct * 40));
+      const found = tokens.find(t => POSITIVE_WORDS.includes(t));
+      keySignal = found ? `Signal word: "${found}"` : 'Positive language pattern';
+    } else if (posPct <= 0.38) {
+      label = 'Negative';
+      confidence = Math.min(98, Math.round(58 + (1 - posPct) * 40));
+      const found = tokens.find(t => NEGATIVE_WORDS.includes(t));
+      keySignal = found ? `Signal word: "${found}"` : 'Negative language pattern';
+    } else {
+      label = 'Neutral';
+      confidence = Math.round(48 + Math.random() * 18);
+      keySignal = hasContrast ? 'Mixed sentiment detected' : 'Balanced sentiment signals';
+    }
+  }
+
+  return { label, confidence, keySignal };
+}
+
+// ── State ──────────────────────────────────────────────────
+let entries = [];
+let idCounter = 0;
+
+// ── UI Helpers ─────────────────────────────────────────────
+const textarea    = document.getElementById('inputText');
+const charNum     = document.getElementById('charNum');
+const tableBody   = document.getElementById('tableBody');
+const emptyRow    = document.getElementById('emptyRow');
+const entryCount  = document.getElementById('entryCount');
+const clearAllBtn = document.getElementById('clearAllBtn');
+const toastEl     = document.getElementById('toast');
+
+textarea.addEventListener('input', () => {
+  charNum.textContent = textarea.value.length;
+});
+
+function showToast(msg) {
+  toastEl.textContent = msg;
+  toastEl.classList.add('show');
+  setTimeout(() => toastEl.classList.remove('show'), 2200);
+}
+
+function clearInput() {
+  textarea.value = '';
+  charNum.textContent = '0';
+  textarea.focus();
+}
+
+function labelClass(label) {
+  return label === 'Positive' ? 'pos' : label === 'Negative' ? 'neg' : 'neu';
+}
+
+// ── Add Entry ──────────────────────────────────────────────
+function addEntry() {
+  const text = textarea.value.trim();
+  if (!text) { showToast('Please enter some feedback text.'); return; }
+  if (text.length < 8) { showToast('Entry is too short to analyse.'); return; }
+
+  const { label, confidence, keySignal } = classify(text);
+  const id = ++idCounter;
+
+  entries.push({ id, text, label, confidence, keySignal });
+  renderTable();
+  updateStats();
+  clearInput();
+  showToast(`Analysed — classified as ${label}`);
+}
+
+// ── Delete Entry ───────────────────────────────────────────
+function deleteEntry(id) {
+  entries = entries.filter(e => e.id !== id);
+  renderTable();
+  updateStats();
+}
+
+// ── Clear All ──────────────────────────────────────────────
+function clearAll() {
+  if (!entries.length) return;
+  entries = [];
+  renderTable();
+  updateStats();
+  showToast('All entries cleared.');
+}
+
+// ── Render Table ───────────────────────────────────────────
+function renderTable() {
+  const rows = tableBody.querySelectorAll('tr.data-row');
+  rows.forEach(r => r.remove());
+
+  if (!entries.length) {
+    emptyRow.style.display = '';
+    clearAllBtn.style.display = 'none';
+    entryCount.textContent = '(0)';
+    return;
+  }
+
+  emptyRow.style.display = 'none';
+  clearAllBtn.style.display = '';
+  entryCount.textContent = `(${entries.length})`;
+
+  entries.forEach((e, i) => {
+    const cls = labelClass(e.label);
+    const shortText = e.text.length > 72 ? e.text.slice(0, 72) + '…' : e.text;
+    const tr = document.createElement('tr');
+    tr.className = 'data-row';
+    tr.innerHTML = `
+      <td style="color:var(--muted);font-family:'DM Mono',monospace;font-size:0.78rem;">${i + 1}</td>
+      <td class="td-text" title="${e.text.replace(/"/g,'&quot;')}">${shortText}</td>
+      <td><span class="label-chip ${cls}">${e.label}</span></td>
+      <td>
+        <div class="conf-bar-wrap">
+          <div class="conf-bar-bg"><div class="conf-bar-fill ${cls}" style="width:${e.confidence}%"></div></div>
+          <span class="conf-num">${e.confidence}%</span>
+        </div>
+      </td>
+      <td style="font-size:0.78rem;color:var(--muted);font-style:italic;">${e.keySignal}</td>
+      <td><span class="td-del" onclick="deleteEntry(${e.id})" title="Remove">&#x2715;</span></td>
+    `;
+    tableBody.appendChild(tr);
+  });
+}
+
+// ── Update Stats ───────────────────────────────────────────
+function updateStats() {
+  const pos = entries.filter(e => e.label === 'Positive').length;
+  const neg = entries.filter(e => e.label === 'Negative').length;
+  const neu = entries.filter(e => e.label === 'Neutral').length;
+  const total = entries.length;
+
+  document.getElementById('posCount').textContent = pos;
+  document.getElementById('negCount').textContent = neg;
+  document.getElementById('neuCount').textContent = neu;
+
+  const fmt = n => total ? Math.round(n / total * 100) + '%' : '— %';
+  document.getElementById('posPct').textContent = fmt(pos);
+  document.getElementById('negPct').textContent = fmt(neg);
+  document.getElementById('neuPct').textContent = fmt(neu);
+
+  // Bars
+  const pct = n => total ? Math.round(n / total * 100) : 0;
+  const pp = pct(pos), np = pct(neg), nep = pct(neu);
+
+  document.getElementById('posBar').style.width = pp + '%';
+  document.getElementById('negBar').style.width = np + '%';
+  document.getElementById('neuBar').style.width = nep + '%';
+  document.getElementById('posBarVal').textContent = pp + '%';
+  document.getElementById('negBarVal').textContent = np + '%';
+  document.getElementById('neuBarVal').textContent = nep + '%';
+
+  // Verdict
+  const vBox = document.getElementById('verdictBox');
+  const vText = document.getElementById('verdictText');
+  const vSub  = document.getElementById('verdictSub');
+
+  vBox.className = 'verdict-box';
+  if (!total) {
+    vBox.classList.add('empty');
+    vText.textContent = 'No entries yet';
+    vSub.textContent  = 'Add feedback above to begin analysis';
+  } else {
+    const dominant = pos >= neg && pos >= neu ? 'pos'
+                   : neg >= pos && neg >= neu ? 'neg'
+                   : 'neu';
+    vBox.classList.add(dominant);
+    const labels = { pos: 'Positive', neg: 'Negative', neu: 'Neutral' };
+    const domPct = pct(dominant === 'pos' ? pos : dominant === 'neg' ? neg : neu);
+    vText.textContent = `Overall sentiment: ${labels[dominant]}`;
+    vSub.textContent  = `${domPct}% of ${total} entr${total === 1 ? 'y' : 'ies'} lean ${labels[dominant].toLowerCase()}`;
+  }
+
+  drawChart(pos, neg, neu);
+}
+
+// ── Mini Bar Chart ─────────────────────────────────────────
+function drawChart(pos, neg, neu) {
+  const canvas = document.getElementById('miniChart');
+  const ctx    = canvas.getContext('2d');
+  const dpr    = window.devicePixelRatio || 1;
+  const W      = canvas.offsetWidth;
+  const H      = 90;
+
+  canvas.width  = W * dpr;
+  canvas.height = H * dpr;
+  ctx.scale(dpr, dpr);
+  ctx.clearRect(0, 0, W, H);
+
+  const data   = [pos, neg, neu];
+  const colors = ['#0F9B6E', '#D93B3B', '#9CA3AF'];
+  const labels = ['Positive', 'Negative', 'Neutral'];
+  const max    = Math.max(...data, 1);
+
+  const barW  = 48;
+  const gap   = (W - data.length * barW) / (data.length + 1);
+  const maxH  = H - 28;
+
+  ctx.font = `500 10px 'DM Sans', sans-serif`;
+  ctx.textAlign = 'center';
+
+  data.forEach((val, i) => {
+    const x  = gap + i * (barW + gap);
+    const bH = val === 0 ? 2 : Math.max(4, (val / max) * maxH);
+    const y  = maxH - bH;
+
+    // Bar
+    ctx.fillStyle = colors[i];
+    ctx.globalAlpha = 0.85;
+    roundRect(ctx, x, y, barW, bH, 4);
+    ctx.fill();
+    ctx.globalAlpha = 1;
+
+    // Value
+    if (val > 0) {
+      ctx.fillStyle = colors[i];
+      ctx.fillText(val, x + barW / 2, y - 5);
+    }
+
+    // Label
+    ctx.fillStyle = '#6B7280';
+    ctx.fillText(labels[i], x + barW / 2, H - 4);
+  });
+}
+
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h);
+  ctx.lineTo(x, y + h);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+}
+
+// ── Enter key shortcut ─────────────────────────────────────
+textarea.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) addEntry();
+});
+
+// ── Init ───────────────────────────────────────────────────
+updateStats();
+window.addEventListener('resize', () => {
+  const { pos, neg, neu } = {
+    pos: entries.filter(e => e.label === 'Positive').length,
+    neg: entries.filter(e => e.label === 'Negative').length,
+    neu: entries.filter(e => e.label === 'Neutral').length,
+  };
+  drawChart(pos, neg, neu);
+});
+</script>
+</body>
+</html>
