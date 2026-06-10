@@ -35,10 +35,15 @@ HTML = """<!DOCTYPE html>
 }
 html { scroll-behavior:smooth; }
 body { background:var(--bg); color:var(--text); font-family:'DM Sans',sans-serif; font-size:15px; line-height:1.6; min-height:100vh; }
-nav { background:var(--surface); border-bottom:1px solid var(--border); padding:0 2rem; height:60px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:100; box-shadow:0 1px 4px rgba(26,29,46,0.05); }
-.nav-brand { font-weight:700; font-size:1rem; color:var(--text); letter-spacing:-0.01em; display:flex; align-items:center; gap:0.6rem; }
+nav { background:var(--surface); border-bottom:1px solid var(--border); padding:0 2rem; height:60px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:100; box-shadow:0 1px 4px rgba(26,29,46,0.05); gap:1rem; }
+.nav-brand { font-weight:700; font-size:1rem; color:var(--text); letter-spacing:-0.01em; display:flex; align-items:center; gap:0.6rem; flex-shrink:0; }
 .nav-dot { width:8px; height:8px; border-radius:50%; background:var(--accent); }
-.nav-tag { font-size:0.72rem; font-weight:500; background:var(--accent-lt); color:var(--accent); border-radius:999px; padding:0.2rem 0.7rem; font-family:'DM Mono',monospace; }
+.nav-links { display:flex; align-items:center; gap:0.25rem; }
+.nav-link { font-size:0.86rem; font-weight:500; color:var(--muted); text-decoration:none; padding:0.4rem 0.85rem; border-radius:6px; transition:color 0.15s, background 0.15s; }
+.nav-link:hover { color:var(--text); background:var(--bg); }
+.nav-link.active { color:var(--accent); background:var(--accent-lt); }
+.nav-tag { font-size:0.72rem; font-weight:500; background:var(--accent-lt); color:var(--accent); border-radius:999px; padding:0.2rem 0.7rem; font-family:'DM Mono',monospace; flex-shrink:0; }
+@media(max-width:640px){ .nav-links{display:none;} }
 .page { max-width:980px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
 .page-header { margin-bottom:2.5rem; }
 .page-header h1 { font-size:1.9rem; font-weight:700; letter-spacing:-0.025em; line-height:1.2; color:var(--text); margin-bottom:0.4rem; }
@@ -130,17 +135,63 @@ tbody td { padding:0.75rem 1rem; color:var(--text); vertical-align:middle; }
 .toast { position:fixed; bottom:1.5rem; right:1.5rem; background:var(--text); color:#fff; font-size:0.84rem; font-weight:500; padding:0.7rem 1.2rem; border-radius:8px; box-shadow:0 8px 32px rgba(26,29,46,0.11); opacity:0; transform:translateY(8px); transition:opacity 0.22s,transform 0.22s; pointer-events:none; z-index:999; }
 .toast.show { opacity:1; transform:translateY(0); }
 .section-gap { margin-top:1.5rem; }
-@media(max-width:600px){ .page-header h1{font-size:1.5rem;} .card{padding:1.1rem;} }
+.section-header { margin-bottom:2rem; }
+.section-eyebrow { font-size:0.72rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); margin-bottom:0.4rem; font-family:'DM Mono',monospace; }
+.section-title { font-size:1.5rem; font-weight:700; letter-spacing:-0.02em; color:var(--text); margin-bottom:0.4rem; }
+.section-sub { color:var(--muted); font-size:0.9rem; }
+.hero-section { background:linear-gradient(135deg,#EEF0FD 0%,#F6F7FB 60%,#E8F8F3 100%); border-bottom:1px solid var(--border); padding:4rem 2rem; text-align:center; }
+.hero-inner { max-width:620px; margin:0 auto; }
+.hero-badge { display:inline-block; background:var(--accent-lt); color:var(--accent); border:1px solid #d0d5f7; border-radius:999px; padding:0.3rem 1rem; font-size:0.75rem; font-family:'DM Mono',monospace; font-weight:500; margin-bottom:1.3rem; letter-spacing:0.05em; }
+.hero-title { font-size:clamp(1.8rem,4vw,2.8rem); font-weight:700; letter-spacing:-0.03em; line-height:1.2; color:var(--text); margin-bottom:1rem; }
+.hero-sub { color:var(--muted); font-size:0.97rem; line-height:1.7; max-width:500px; margin:0 auto 2rem; }
+.hero-btn { display:inline-block; background:var(--accent); color:#fff; font-family:'DM Sans',sans-serif; font-size:0.9rem; font-weight:600; padding:0.75rem 2rem; border-radius:8px; text-decoration:none; box-shadow:0 2px 12px rgba(79,99,210,0.3); transition:background 0.15s,box-shadow 0.15s; }
+.hero-btn:hover { background:#3d50c0; box-shadow:0 4px 18px rgba(79,99,210,0.4); }
+.how-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; }
+.how-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:1.4rem; box-shadow:var(--shadow); transition:transform 0.18s,border-color 0.18s; }
+.how-card:hover { transform:translateY(-3px); border-color:#c7cdf5; }
+.how-step { font-family:'DM Mono',monospace; font-size:0.72rem; font-weight:500; color:var(--accent); background:var(--accent-lt); display:inline-block; padding:0.2rem 0.6rem; border-radius:4px; margin-bottom:0.75rem; }
+.how-title { font-weight:700; font-size:0.95rem; color:var(--text); margin-bottom:0.4rem; }
+.how-desc { font-size:0.82rem; color:var(--muted); line-height:1.55; }
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
+@media(max-width:700px){ .about-grid{grid-template-columns:1fr;} }
+.about-card { display:flex; align-items:flex-start; gap:1.2rem; padding:1.5rem; }
+.about-avatar { width:52px; height:52px; border-radius:50%; background:linear-gradient(135deg,var(--accent),#0F9B6E); display:flex; align-items:center; justify-content:center; font-family:'DM Sans',sans-serif; font-size:1.1rem; font-weight:700; color:#fff; flex-shrink:0; }
+.about-name { font-weight:700; font-size:1rem; color:var(--text); margin-bottom:0.15rem; }
+.about-email { font-size:0.82rem; color:var(--accent); margin-bottom:0.6rem; font-family:'DM Mono',monospace; }
+.about-desc { font-size:0.83rem; color:var(--muted); line-height:1.6; }
+.tech-chips { display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.5rem; }
+.chip { font-size:0.75rem; font-weight:500; background:var(--bg); border:1px solid var(--border); color:var(--muted); border-radius:6px; padding:0.25rem 0.65rem; }
+.perf-row { display:flex; align-items:center; gap:0.75rem; margin-top:0.6rem; }
+.perf-label { font-size:0.78rem; font-weight:600; color:var(--muted); width:70px; flex-shrink:0; }
+.perf-bar-bg { flex:1; height:6px; background:var(--border); border-radius:999px; overflow:hidden; }
+.perf-bar-fill { height:100%; background:var(--accent); border-radius:999px; }
+.perf-val { font-size:0.75rem; font-family:'DM Mono',monospace; color:var(--muted); width:70px; text-align:right; }
+@media(max-width:600px){ .page-header h1{font-size:1.5rem;} .card{padding:1.1rem;} .hero-section{padding:2.5rem 1.2rem;} }
 @media(prefers-reduced-motion:reduce){ *,*::before,*::after{transition:none!important;} }
 </style>
 </head>
 <body>
 <nav>
   <div class="nav-brand"><div class="nav-dot"></div>Sentiment Classifier</div>
+  <div class="nav-links">
+    <a href="#home" class="nav-link active">Home</a>
+    <a href="#detector" class="nav-link">Detector</a>
+    <a href="#how-it-works" class="nav-link">How it Works</a>
+    <a href="#about" class="nav-link">About</a>
+  </div>
   <div class="nav-tag">NLP · PyTorch</div>
 </nav>
+<div id="home" class="hero-section">
+  <div class="hero-inner">
+    <div class="hero-badge">NLP · Multi-Class · PyTorch</div>
+    <h1 class="hero-title">Understand What Your<br/>Feedback Really Means</h1>
+    <p class="hero-sub">Paste any feedback — product review, comment, or message — and our classifier will instantly tell you whether it is Positive, Negative, or Neutral, with confidence scores and key signal words.</p>
+    <a href="#detector" class="hero-btn">Try the Detector</a>
+  </div>
+</div>
+
 <div class="page">
-  <div class="page-header">
+  <div class="page-header" id="detector">
     <h1>Feedback Sentiment Analysis</h1>
     <p>Add multiple feedback entries and the classifier will analyse each one — showing a breakdown across Positive, Negative, and Neutral sentiments.</p>
   </div>
@@ -192,6 +243,50 @@ tbody td { padding:0.75rem 1rem; color:var(--text); vertical-align:middle; }
       </table>
     </div>
   </div>
+
+  <!-- HOW IT WORKS -->
+  <div id="how-it-works" style="margin-top:3rem;">
+    <div class="section-header">
+      <div class="section-eyebrow">Process</div>
+      <h2 class="section-title">How it Works</h2>
+      <p class="section-sub">Four steps from raw text to sentiment insight.</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-card"><div class="how-step">01</div><div class="how-title">Text Input</div><div class="how-desc">Paste or type any feedback — product reviews, customer comments, or survey responses.</div></div>
+      <div class="how-card"><div class="how-step">02</div><div class="how-title">Preprocessing</div><div class="how-desc">Text is cleaned, tokenised, stop words removed, and lemmatized to root forms.</div></div>
+      <div class="how-card"><div class="how-step">03</div><div class="how-title">Classification</div><div class="how-desc">Lexicon-based classifier scores tokens, accounting for negation words like "not" or "never".</div></div>
+      <div class="how-card"><div class="how-step">04</div><div class="how-title">Results</div><div class="how-desc">Each entry gets a sentiment label, confidence score, and key signal word highlighted.</div></div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div id="about" style="margin-top:3rem; margin-bottom:3rem;">
+    <div class="section-header">
+      <div class="section-eyebrow">Project</div>
+      <h2 class="section-title">About</h2>
+    </div>
+    <div class="about-grid">
+      <div class="card about-card">
+        <div class="about-avatar">EI</div>
+        <div>
+          <div class="about-name">Eman Iftikhar</div>
+          <div class="about-email">emaniftikhar41@gmail.com</div>
+          <p class="about-desc">Built as Task 2 of an NLP assignment — implementing a multi-class sentiment classifier using PyTorch, TF-IDF vectorization, and preprocessing including lemmatization and stop-word removal.</p>
+        </div>
+      </div>
+      <div class="card" style="padding:1.5rem;">
+        <div class="card-title">Tech Stack</div>
+        <div class="tech-chips">
+          <span class="chip">PyTorch 2.x</span><span class="chip">Scikit-Learn</span><span class="chip">NLTK</span><span class="chip">TF-IDF</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Streamlit</span><span class="chip">Early Stopping</span><span class="chip">WordNet Lemmatizer</span><span class="chip">Google Colab</span>
+        </div>
+        <div class="card-title" style="margin-top:1.2rem;">Model Performance</div>
+        <div class="perf-row"><span class="perf-label">F1-Score</span><div class="perf-bar-bg"><div class="perf-bar-fill" style="width:91%"></div></div><span class="perf-val">91%</span></div>
+        <div class="perf-row"><span class="perf-label">Accuracy</span><div class="perf-bar-bg"><div class="perf-bar-fill" style="width:90%"></div></div><span class="perf-val">90%</span></div>
+        <div class="perf-row"><span class="perf-label">Dataset</span><div class="perf-bar-bg"><div class="perf-bar-fill" style="width:40%"></div></div><span class="perf-val">400 samples</span></div>
+      </div>
+    </div>
+  </div>
+
 </div>
 <div class="toast" id="toast"></div>
 <script>
